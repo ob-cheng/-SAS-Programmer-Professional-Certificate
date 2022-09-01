@@ -19,3 +19,16 @@ data np_summary_update;
 	Camping = sum(OtherCamping, TentCampers, RVCampers, BackcountryCampers);
 	format SqMiles Camping COMMA.;
 run;
+
+------------------------------
+
+data eu_occ_total;
+	set pg1.eu_occ;
+	Year=substr(YearMon, 1, 4);
+	Month=substr(YearMon, 6, 2);
+	ReportDate=mdy(Month, 01, Year);
+	Total=sum(Hotel, ShortStay, Camp);
+	format ReportDate Monyy7.;
+	Keep Country Hotel ShortStay Camp ReportDate Total;
+	Format Hotel ShortStay Camp Total comma9.;
+run;
