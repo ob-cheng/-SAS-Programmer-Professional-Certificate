@@ -33,3 +33,25 @@ data eu_occ2016;
     format Hotel ShortStay Camp comma17.;
     drop geo;
 run;
+
+/*Open a new program window and write a DATA step to read the pg1.np_species table and create a new permanent table named out.fox in the  EPG1V2/output folder.
+1)include only the rows where Category is Mammal and Common_Names includes Fox.
+2)Exclude the Category, Record_Status, Occurrence, and Nativeness columns from the output data.
+3)Submit the program.
+4)Notice that Fox Squirrels are included in the output table. Add a condition in the WHERE statement to exclude rows that include Squirrel. 
+5)Submit the program and verify the results.
+6)Sort the fox table by Common_Names.
+
+What is the value of Common_Names in row one?*/
+
+data out.fox;
+	set pg1.np_species;
+	where Category = 'Mammal' and Common_Names contains "Fox" and Common_Names not contains "Squirrel";
+	drop Category Record_Status Occurrence Nativeness;
+run;
+
+proc sort data=out.fox;
+	by Common_Names;
+run;
+
+
