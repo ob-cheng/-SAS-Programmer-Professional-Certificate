@@ -1,6 +1,6 @@
 # SAS Code Practicing 📠
 
-This repository includes codes for SAS Programming course. 
+This repository includes codes for "Getting Started with SAS Programming" taught by Stacey Syphus.
 
 Objects: learning how to write SAS programs to access, explore, prepare, and analyze data. It is the entry point to learning SAS programming for data science, machine learning, and artificial intelligence. It is a prerequisite to many other SAS courses.
 
